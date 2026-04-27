@@ -1,0 +1,8 @@
+{
+  "name": "Asia Hydraulics ",
+  "description": "A high-performance professional web application for Samu Hardware, specializing in industrial and hydraulic equipment with integrated AI assistance.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
