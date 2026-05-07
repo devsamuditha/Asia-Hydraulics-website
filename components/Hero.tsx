@@ -1,53 +1,24 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo } from 'react';
 import { ArrowRight, Award, BadgeCheck, ShieldCheck } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const backgroundImages = [
-    '/images/RAM_4747.webp',
-    '/images/RAM_4734.webp',
-    '/images/RAM_4803.webp',
-  ];
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
-    }, 5000);
-
-    return () => window.clearInterval(intervalId);
-  }, [backgroundImages.length]);
+  const backgroundImage = '/images/RAM_4747.webp';
 
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background images (clean crossfade transition) */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {backgroundImages.map((image, index) => {
-          const isActive = index === currentImageIndex;
-          const isFlipped = image === '/images/RAM_4803.webp';
-          const isShiftedLeft = image === '/images/RAM_4803.webp';
-
-          return (
-            <div
-              key={image}
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `url('${image}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: isShiftedLeft ? 'calc(50% - 250px) center' : 'center',
-                backgroundRepeat: 'no-repeat',
-                opacity: isActive ? 1 : 0,
-                transition: 'opacity 900ms ease',
-                transform: `scale(${isActive ? 1 : 1.02}) ${isFlipped ? 'scaleX(-1)' : ''}`,
-                transformOrigin: 'center',
-              }}
-            />
-          );
-        })}
-      </div>
+      {/* Background image */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `url('${backgroundImage}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      ></div>
       {/* Background overlay */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
@@ -87,7 +58,7 @@ const Hero: React.FC = () => {
             <div className="pt-4 sm:pt-5 border-t border-slate-100 flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-7">
               <div className="flex items-center space-x-2"><BadgeCheck size={16} className="text-samu"/><span className="text-[9px] sm:text-[10px] font-bold text-slate-600 uppercase tracking-widest">High Quality</span></div>
               <div className="flex items-center space-x-2"><ShieldCheck size={16} className="text-samu"/><span className="text-[9px] sm:text-[10px] font-bold text-slate-600 uppercase tracking-widest">High Durability</span></div>
-              <div className="flex items-center space-x-2"><Award size={16} className="text-samu"/><span className="text-[9px] sm:text-[10px] font-bold text-slate-600 uppercase tracking-widest">50 Years Service</span></div>
+              <div className="flex items-center space-x-2"><Award size={16} className="text-samu"/><span className="text-[9px] sm:text-[10px] font-bold text-slate-600 uppercase tracking-widest">20 Years Service</span></div>
               
             </div>
           </div>

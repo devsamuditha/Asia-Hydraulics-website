@@ -5,7 +5,8 @@ import { BadgeCheck, SprayCan, Wrench, Globe2 } from 'lucide-react';
 const AboutUs: React.FC = () => {
   const aboutImages = [
     '/images/RAM_4747.webp',
-    '/images/Main%20page%20slider%20pic.JPG'
+    '/images/Main%20page%20slider%20pic.JPG',
+    
   ];
   const [activeImage, setActiveImage] = useState(0);
 
@@ -24,7 +25,7 @@ const AboutUs: React.FC = () => {
     },
     {
       icon: <SprayCan className="w-6 h-6" />,
-      title: "Sandblast & Spray Equipment"
+      title: "Sandblast & Airless Spray Equipment"
     },
     {
       icon: <Wrench className="w-6 h-6" />,
@@ -65,18 +66,47 @@ const AboutUs: React.FC = () => {
             </div>
 
             <div className="mt-8">
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
+              <div className="flex flex-nowrap items-center justify-center gap-8 sm:gap-12 overflow-x-auto" style={{ perspective: '1000px' }}>
                 {[
                   'Annuco-300x300.png',
+                  'Airblast-logo.jpg',
                   'Artboard-4-300x300.png',
                 ].map((logo, idx) => (
-                  <img
+                  <div
                     key={logo}
-                    src={`/images/${logo}`}
-                    alt={`Brand logo ${idx + 1}`}
-                    className="h-36 w-36 sm:h-40 sm:w-40 object-contain opacity-90 transition-all duration-300 hover:scale-105 hover:opacity-100"
-                    loading="lazy"
-                  />
+                    className="relative group"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      transform: 'rotateX(0deg) rotateY(0deg)',
+                    }}
+                  >
+                    <div
+                      className="flex items-center justify-center transition-all duration-500 ease-out bg-white rounded-3xl p-4 sm:p-6 shadow-md"
+                      style={{
+                        minHeight: '160px',
+                        minWidth: '160px',
+                      }}
+                    >
+                      <img
+                        src={`/images/${logo}`}
+                        alt={`Brand logo ${idx + 1}`}
+                        className="h-24 w-24 sm:h-32 sm:w-32 object-contain opacity-85 transition-all duration-500 ease-out"
+                        style={{
+                          filter: 'drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15))',
+                          transformStyle: 'preserve-3d',
+                        }}
+                        loading="lazy"
+                      />
+                    </div>
+                    <div 
+                      className="absolute inset-0 rounded-2xl transition-all duration-500 ease-out group-hover:shadow-2xl group-hover:scale-110"
+                      style={{
+                        background: 'radial-gradient(ellipse at top-right, rgba(45, 171, 245, 0.1), transparent)',
+                        transform: 'translateZ(-20px)',
+                        backfaceVisibility: 'hidden',
+                      }}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -93,9 +123,11 @@ const AboutUs: React.FC = () => {
               Sri Lanka’s <span className="text-samu text-2xl md:text-4xl">Trusted</span> <br /> Equipment Partner
             </h2>
             <p className="text-slate-600 text-base md:text-md mb-8 leading-relaxed font-medium">
-              Asia Hydraulics is a registered company for imports and distribution of all kinds of hydraulics and industrial hoses and fittings. We also distribute sandblast equipment and airless spray products.<br /><br />
-              Our staff of highly skilled technicians offers world-class hose assembly, crimping, and repair services, including custom modifications for Komatsu, Caterpillar, forklifts, and all heavy commercial hydraulic machines.<br /><br />
-              We offer a vast range of quality products from leading suppliers such as LBG, Diesse, Sunflex, and Exitflex.
+                          Asia Hydraulics is a well known company for imports and distribution of all kinds of hydraulic and industrial hoses and fittings. We also distribute sandblast equipment and airless spray products.<br />
+
+                         Our staff of highly skilled technicians offers world-class hose assembly, crimping, and repair services, including custom modifications for Komatsu, Caterpillar, Forklifts, and all heavy commercial hydraulic machines.<br />
+
+                         We offer a vast range of quality products from leading suppliers such as Mannuco, AirBlast, LBG, Sunflex, and Graco.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

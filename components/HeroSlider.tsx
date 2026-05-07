@@ -1,11 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 const images = [
-  '/images/air-less.png',
-  '/images/Sand%20Blasting.jpg',
-  '/images/RAM_4734.webp',
   '/images/RAM_4747.webp',
-  '/images/RAM_4803.webp',
 ];
 
 const HeroSlider: React.FC = () => {
